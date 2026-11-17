@@ -1,1 +1,303 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon espace FLE - A1.1</title>
+
+<style>
+:root {
+  --jaune: #FFCF56;
+  --corail: #FF8066;
+  --turquoise: #5CBCC5;
+  --creme: #F8F4E9;
+  --bleu: #253A53;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--creme);
+  color: var(--bleu);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--bleu);
+  color: white;
+  padding: 20px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header h1 {
+  color: var(--jaune);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--jaune);
+}
+
+.hero {
+  background: var(--bleu);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--jaune);
+  color: var(--bleu);
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 18px;
+  min-height: 150px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 23px;
+}
+
+.yellow { background: #FFE6A6; }
+.coral { background: #FFE0D8; }
+.turquoise { background: #D9F0EF; }
+.blue { background: #E5EAF0; }
+
+.quiz, .assistant {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  margin-top: 35px;
+}
+
+.quiz label {
+  display: block;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+footer {
+  background: var(--bleu);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Mon espace FLE</h1>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#apprendre">J'apprends</a>
+    <a href="#pratiquer">Je pratique</a>
+    <a href="#jouer">Je joue</a>
+    <a href="#assistant">Assistant IA</a>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <h2>Apprenons le français ensemble !</h2>
+  <p>Bienvenue dans ton espace d'apprentissage du français.</p>
+  <p><strong>Niveau A1.1 - Débutant</strong></p>
+  <a href="#apprendre" class="btn">Commencer à apprendre</a>
+</section>
+
+<main class="container">
+
+  <h2>Découvre les quatre rubriques</h2>
+
+  <div class="cards">
+
+    <div class="card yellow" id="apprendre">
+      <h3>📚 J'apprends</h3>
+      <p>Découvre les leçons de grammaire,
+      de conjugaison et de vocabulaire.</p>
+    </div>
+
+    <div class="card coral" id="pratiquer">
+      <h3>✏️ Je pratique</h3>
+      <p>Entraîne-toi avec des exercices
+      interactifs et des activités.</p>
+    </div>
+
+    <div class="card turquoise" id="jouer">
+      <h3>🎮 Je joue</h3>
+      <p>Amuse-toi avec des quiz
+      et des jeux éducatifs.</p>
+    </div>
+
+    <div class="card blue" id="assistant">
+      <h3>🤖 Mon assistant IA</h3>
+      <p>Pose tes questions et découvre
+      le français avec un assistant virtuel.</p>
+    </div>
+
+  </div>
+
+  <section class="quiz">
+    <h2>🎯 Mon premier quiz</h2>
+
+    <p>Comment dit-on bonjour le matin ?</p>
+
+    <label>
+      <input type="radio" name="reponse" value="a">
+      Bonsoir
+    </label>
+
+    <label>
+      <input type="radio" name="reponse" value="b">
+      Bonjour
+    </label>
+
+    <label>
+      <input type="radio" name="reponse" value="c">
+      Au revoir
+    </label>
+
+    <button class="btn" onclick="verifier()">
+      Vérifier ma réponse
+    </button>
+
+    <p id="result" aria-live="polite"></p>
+  </section>
+
+  <section class="assistant">
+    <h2>🤖 Mon assistant pédagogique</h2>
+
+    <p>
+      Bonjour ! Je suis ton assistant FLE.
+      Je suis là pour t'aider à apprendre le français.
+    </p>
+
+    <p>
+      Tu peux bientôt me poser des questions
+      sur les leçons et les exercices.
+    </p>
+
+    <p><em>
+      La connexion à l'intelligence artificielle
+      sera ajoutée dans une prochaine étape.
+    </em></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Mon espace FLE - Apprendre le français autrement !</p>
+  <p>Niveau A1.1 | Espace pédagogique</p>
+</footer>
+
+<script>
+function verifier() {
+
+  const choix = document.querySelector(
+    'input[name="reponse"]:checked'
+  );
+
+  const resultat = document.getElementById("result");
+
+  if (!choix) {
+    resultat.textContent = "Choisis une réponse !";
+    resultat.style.color = "#FF8066";
+    return;
+  }
+
+  if (choix.value === "b") {
+    resultat.textContent = "Bravo ! Excellente réponse ! 🎉";
+    resultat.style.color = "green";
+  } else {
+    resultat.textContent = "Essaie encore ! Tu peux réussir ! 💪";
+    resultat.style.color = "#FF8066";
+  }
+}
+</script>
+
+</body>
+</html>
+
